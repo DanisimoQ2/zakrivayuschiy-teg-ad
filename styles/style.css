@@ -1,7 +1,7 @@
 /* Здесь вы напишете основную часть стилей страницы.
 
 Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ like-icon — для svg-иконки анимированного сердца
+✦ card__like-button — для svg-иконки анимированного сердца
 ✦ card__like-button — для кнопки Like рядом с иконкой
 ✦ card__icon-button — для кнопки, оборачивающей иконку
 ✦ card__icon-button — для кнопки, оборачивающей иконку
@@ -19,7 +19,7 @@
 
 .header {
   display: flex;
-  height: 960px;
+  height: auto;
   font-family: var(--accent-txt);
 }
 
@@ -42,9 +42,11 @@
   margin-top: clamp(120px, 118.06px + 0.52vw, 128px);
   margin-left: auto;
   margin-right: auto;
+  line-height: auto;
 }
 
 .tag {
+  line-height: auto;
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
@@ -53,8 +55,7 @@
 
 .main {
   width: clamp(375px, 260.56px + 30.52vw, 700px);
-  transform: translateY(-200px);
-  margin-top: -200px;
+  margin-top: 100px;
   margin-left: auto;
   margin-right: auto;
   font-size: 18px;
@@ -81,6 +82,7 @@
   padding-top: 25px;
   padding-left: 25px;
   padding-right: 25px;
+  line-height: 21px;
 }
 
 .img {
@@ -125,29 +127,26 @@ button {
   outline: none;
   transition: border 0.3s ease;
   font-size: 14px;
+  line-height: 90%;
 }
 
-.heart-button {
+.card__icon-button {
   position: absolute;
   border: none;
   right: 167px;
-  bottom: clamp(30px, 31.35px + -0.09vw, 31px);
+  bottom: 25px;
   padding: 0;
+  height: 38px;
+  width: 38px;
+  padding: auto;
 }
 
-.heart {
-  height: 24px;
-  width: 27px;
+.like-icon {
+  height: 30px;
+  width: 30px;
 }
 
-.floppy {
-  position: relative;
-  width: 21px;
-  height: 21px;
-  fill: currentColor;
-}
-
-.like {
+.card__like-button {
   position: relative;
   font-family: var(--accent-txt);
   font-weight: var(--card);
@@ -163,26 +162,26 @@ button {
   isolation: isolate;
 }
 
-.like span {
+.card__like-button .button__text {
   position: relative;
   z-index: 2;
   mix-blend-mode: difference;
 }
 
-.like::before {
+.card__like-button::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: black;
+  background-color: var(--black);
   transform: translateX(-100%);
   transition: transform 0.5s ease-in-out;
   z-index: 1;
 }
 
-.like:hover::before {
+.card__like-button:hover::before {
   transform: translateX(0);
 }
 
@@ -190,11 +189,11 @@ button:focus {
   box-shadow: none;
 }
 
-.heart-button:focus {
+.card__icon-button:focus {
   border: 2px solid var(--black);
 }
 
-.heart-button:focus-visible {
+.card__icon-button:focus-visible {
   box-shadow: none;
 }
 
@@ -210,7 +209,7 @@ button:focus-visible {
   margin-left: clamp(35px, -16.41px + 13.71vw, 181px);
   margin-bottom: clamp(102px, 100.94px + 0.28vw, 105px);
   width: clamp(310px, 296.27px + 3.66vw, 349px);
-  height: clamp(51px, 90.21px + -2.72vw, 80px);
+  height: clamp(55px, 94.21px + -2.72vw, 84px);
   cursor: pointer;
   overflow: hidden;
   isolation: isolate;
@@ -220,7 +219,7 @@ button:focus-visible {
   gap: 8px;
 }
 
-.memory span {
+.memory .button__text {
   bottom: clamp(15px, 13.77px + 0.33vw, 18.5px);
   z-index: 2;
   width: 266px;
@@ -235,7 +234,7 @@ button:focus-visible {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: black;
+  background-color: var(--black);
   transform: translateX(-100%);
   transition: transform 0.5s ease-in-out;
   z-index: 1;
@@ -245,8 +244,12 @@ button:focus-visible {
   transform: translateX(0);
 }
 
-.floppy {
+.floppy1 {
   margin-left: 19px;
+  width: 21px;
+  height: 21px;
+  z-index: 2;
+  mix-blend-mode: difference;
 }
 
 .nostalgia {
@@ -281,8 +284,92 @@ button:focus-visible {
   filter: contrast(1.4) brightness(0.9) saturate(0.7);
 }
 
-@media (width <= 375px) {
-  .post {
-    max-width: 375px;
+dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.5);
+}
+
+#dialog-id {
+  z-index: 2;
+}
+
+dialog:open {
+  display: grid;
+  width: clamp(341px, 336.77px + 1.13vw, 353px);
+  height: 191px;
+  display: grid;
+  grid-template-rows: 93px 98px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: clamp(89px, 105.23px + -1.13vw, 101px) clamp(198px, 185.32px + 3.38vw, 234px);
+  gap: 20px;
+}
+
+.floppy2 {
+  margin-top: 42px;
+  margin-left: auto;
+  width: 39px;
+  height: 39px;
+  z-index: 2;
+  fill: var(--white);
+  mix-blend-mode: difference;
+}
+
+.need {
+  text-transform: uppercase;
+  font-family: var(--accent-txt);
+  font-size: 14px;
+  height: 63px;
+  font-weight: var(--card);
+  margin-top: 30px;
+  line-height: 150%;
+}
+
+.ok {
+  position: relative;
+  padding: 0;
+  width: clamp(257px, 244.32px + 3.38vw, 293px);
+  height: 38px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+.ok .button__text {
+  text-transform: uppercase;
+  font-family: var(--accent-txt);
+  font-size: 14px;
+  font-weight: var(--card);
+}
+
+@media (width <= 572px) {
+  .memory {
+    display: grid;
+    grid-template-rows: 43px 29px;
   }
+
+  .floppy1 {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    height: 28px;
+    width: 28px;
+  }
+
+  .memory .button__text {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  dialog:open {
+    height: 195px;
+  }
+}
+
+@media (width <= 375px) {
+
 }
