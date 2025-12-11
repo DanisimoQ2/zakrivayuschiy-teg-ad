@@ -104,7 +104,7 @@
   color: transparent;
   background: transparent;
   mix-blend-mode: hard-light;
-  pointer-events: none;
+  pointer-events: var(--none);
   z-index: 10;
 
   -webkit-text-stroke: 1px var(--black);
@@ -126,7 +126,7 @@
 }
 
 button {
-  outline: none;
+  outline: var(--none);
   background: var(--white);
   transition: border 0.3s ease;
   font-size: 14px;
@@ -135,8 +135,8 @@ button {
 
 .card__icon-button {
   position: absolute;
-  outline: none;
-  border: none;
+  outline: var(--none);
+  border: var(--none);
   right: 167px;
   bottom: 25px;
   height: 38px;
@@ -190,12 +190,12 @@ button {
 }
 
 button:focus {
-  box-shadow: none;
+  box-shadow: var(--none);
 }
 
 .card__icon-button:focus-visible {
   outline: 2px solid var(--black);
-  box-shadow: none;
+  box-shadow: var(--none);
 }
 
 button:focus-visible {
