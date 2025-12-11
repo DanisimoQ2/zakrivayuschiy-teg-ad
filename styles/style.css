@@ -14,13 +14,17 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-family: var(--txt);
-  font-variation-settings: "wght" var(--card), "wdth" 100;
+  font-variation-settings: "wdth" 100;
 }
 
 .header {
-  display: flex;
   height: auto;
   font-family: var(--accent-txt);
+}
+
+.footer {
+  margin-top: clamp(52px, 54.70px + -0.19vw, 54px);
+  min-inline-size: 375px;
 }
 
 .head-title {
@@ -122,9 +126,8 @@
 }
 
 button {
-  border: 2px solid var(--black);
-  background: var(--white);
   outline: none;
+  background: var(--white);
   transition: border 0.3s ease;
   font-size: 14px;
   line-height: 90%;
@@ -132,6 +135,7 @@ button {
 
 .card__icon-button {
   position: absolute;
+  outline: none;
   border: none;
   right: 167px;
   bottom: 25px;
@@ -190,7 +194,7 @@ button:focus {
 }
 
 .card__icon-button:focus-visible {
-  border: 2px solid var(--black);
+  outline: 2px solid var(--black);
   box-shadow: none;
 }
 
@@ -213,6 +217,8 @@ button:focus-visible {
   padding: 0;
   display: flex;
   align-items: center;
+  margin-left: auto;
+  margin-right: auto;
   gap: 8px;
 }
 
@@ -294,6 +300,7 @@ dialog:open {
   width: clamp(341px, 336.77px + 1.13vw, 353px);
   height: 191px;
   grid-template-rows: 93px 98px;
+  gap: 30px;
   padding: 0;
   overflow: hidden;
 }
@@ -331,7 +338,6 @@ dialog:open {
   height: 38px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 30px;
   cursor: pointer;
 }
 

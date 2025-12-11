@@ -12,7 +12,7 @@ body {
   margin: 0;
   background-image: var(--page-background);
   background-size: cover;
-  background-attachment: scroll;
+  background-attachment: fixed;
   background-repeat: repeat;
   min-height: 100vh;
 }
