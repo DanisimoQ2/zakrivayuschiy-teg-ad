@@ -14,7 +14,6 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-family: var(--txt);
-  font-variation-settings: "wdth" 100;
 }
 
 .header {
@@ -73,8 +72,8 @@
 }
 
 .title {
-  border-bottom: 2px solid var(--black);
   font-weight: var(--title);
+  border-bottom: 2px solid var(--black);
   padding-left: 10px;
   padding-top: 3px;
   min-height: 31px;
@@ -82,6 +81,7 @@
 }
 
 .text {
+  font-variation-settings: "wght" var(--card);
   border-top: 2px solid var(--black);
   padding-top: 25px;
   padding-left: 25px;
@@ -207,7 +207,6 @@ button:focus-visible {
   font-family: var(--accent-txt);
   font-weight: var(--card);
   color: var(--white);
-  margin-left: clamp(35px, -16.41px + 13.71vw, 181px);
   margin-bottom: clamp(102px, 100.94px + 0.28vw, 105px);
   width: clamp(310px, 296.27px + 3.66vw, 349px);
   height: clamp(55px, 94.21px + -2.72vw, 84px);
